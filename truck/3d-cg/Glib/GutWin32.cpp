@@ -1,6 +1,9 @@
 #include "GutWin32.h"
 #include "Gut.h"
 
+//##############################################################################
+//###########################device getter setter#####################################
+//##############################################################################
 
 void GutSetWindowHandleWin32(HWND hWnd)
 {
@@ -23,41 +26,10 @@ void GutGetWindowSize(int &w, int &h)
 	h = g_iWindowPosHeight;
 }
 
-static LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
-	switch(message)
-	{
-	case WM_DESTROY:
-		{
-			PostQuitMessage(0);
-			break;
-		}
-	case WM_SIZE:
-		{
-			int w = LOWORD(lParam);
-			int h = HIWORD(lParam);
-			g_iWindowPosHeight = h;
-			g_iWindowPosWidth = w;
-			//if(g_GutCallBack.OnSize && )
-			break;
-		}
-	case WM_PAINT:
-		{
-			PAINTSTRUCT ps;
-			BeginPaint(hwnd, &ps);
-			EndPaint(hwnd, &ps);
-			if(g_GutCallBack.OnPaint)
-				g_GutCallBack.OnPaint();
-			break;
-		}
-	default:
-		{
-			return DefWindowProc(hwnd, message, wParam, lParam);
-			break;
-		}
-	}
-	return FALSE;
-}
+//##############################################################################
+//##################################device init#####################################
+//##############################################################################
+
 
 bool GutCreateWindow(int x, int y, int width, int height, const char *title)
 {
@@ -120,6 +92,48 @@ bool GutCreateWindow(int x, int y, int width, int height, const char *title)
 	SetActiveWindow(window_handle);
 
 	return TRUE;
+}
+
+//##############################################################################
+//##########################message proc##########################################
+//##############################################################################
+
+//訊息處理
+static LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch(message)
+	{
+	case WM_DESTROY:
+		{
+			PostQuitMessage(0);
+			break;
+		}
+	case WM_SIZE:
+		{
+			int w = LOWORD(lParam);
+			int h = HIWORD(lParam);
+			g_iWindowPosHeight = h;
+			g_iWindowPosWidth = w;
+			if(g_GutCallBack.OnSize && GUT_UNKNOWN != GutGetGraphicsDeviceType())
+				g_GutCallBack.OnSize(w,h);
+			break;
+		}
+	case WM_PAINT:
+		{
+			PAINTSTRUCT ps;
+			BeginPaint(hwnd, &ps);
+			EndPaint(hwnd, &ps);
+			if(g_GutCallBack.OnPaint)
+				g_GutCallBack.OnPaint();
+			break;
+		}
+	default:
+		{
+			return DefWindowProc(hwnd, message, wParam, lParam);
+			break;
+		}
+	}
+	return FALSE;
 }
 
 //檢查Windows作業系統傳來的訊息

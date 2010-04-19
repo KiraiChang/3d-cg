@@ -5,6 +5,17 @@
 #define RELEASE_ARRAY(x) if ( x ) { delete [] x; x=NULL; }
 
 #include <stdio.h>
+#include ".\math\Vector4.h"
+
+//--------------device init struct----------------
+
+enum GutEnum
+{
+	GUT_UNKNOWN = 1,// device
+	GUT_OPENGL,
+	GUT_DX9,
+	GUT_DX10,
+};
 
 struct GutCallBack
 {
@@ -34,6 +45,7 @@ struct GutDeviceSpec
 	}
 };
 
+//----------------------------------------
 
 
 

@@ -8,8 +8,9 @@
 #include "GutOpenGL.h"
 #include "GutWin32.h"
 
-static HDC g_hDC = NULL;
-static HGLRC g_hGLRC = NULL;
+//#############################################################
+//########################device init#############################
+//#############################################################
 
 bool GutInitGraphicsDeviceOpenGL(GutDeviceSpec *spec)
 {
@@ -53,14 +54,23 @@ static bool SetPixelFormat(HDC hdc)
 	//¨Ï¥ÎOPENGL¸Ë¸m
 	wglMakeCurrent(g_hDC, g_hGLRC);
 
-	return FALSE;
+	return TRUE;
 }
+
+//#############################################################
+//#####################device opertion#############################
+//#############################################################
 
 
 void GutSwapBuffersOpenGL(void)
 {
 	SwapBuffers(g_hDC);
 }
+
+
+//#############################################################
+//####################resource release#############################
+//#############################################################
 
 bool GutReleaseGraphicsDeviceOpenGL(void)
 {

@@ -3,6 +3,8 @@
 
 #include <windows.h>
 
+//--------------global object--------------------------------
+
 static HWND g_hWnd = NULL;
 static HINSTANCE g_hInstance = NULL;
 static HANDLE g_ThreadHandle = NULL;
@@ -13,10 +15,14 @@ static int g_iWindowPosY = 100;
 static int g_iWindowPosWidth = 512;
 static int g_iWindowPosHeight = 512;
 
+//--------------device getter setter--------------------------------
+
 void GutSetWindowHandleWin32(HWND hWnd);
 HWND GutGetWindowHandleWin32(void);
 HINSTANCE GutGetWindowInstanceWin32(void);
 void GutGetWindowSize(int &w, int &h);
+
+//--------------device init--------------------------------
 
 static LRESULT WINAPI WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 bool GutCreateWindow(int x, int y, int width, int height, const char *title);
