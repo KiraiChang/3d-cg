@@ -21,9 +21,9 @@ bool GutInitGraphicsDevice(const char *device)
 	case GUT_OPENGL:
 		return GutInitGraphicsDeviceOpenGL();
 		break;
-	//case GUT_DX9:
-	//	return GutInitGraphicsDeviceDX9();
-	//	break;
+	case GUT_DX9:
+		return GutInitGraphicsDeviceDX9();
+		break;
 	//case GUT_DX10:
 	//	return GutInitGraphicsDeviceDX10();
 	//	break;
@@ -101,6 +101,58 @@ Matrix4x4 GutMatrixOrthoRH_OpenGL(float w, float h, float z_near, float z_far)
 
 	return matrix;
 }
+
+Matrix4x4 GutMatrixOrthoRH_DirectX(float w, float h, float z_near, float z_far)
+{
+	Matrix4x4 matrix;
+	matrix.Identity();
+
+	matrix[0][0] = 2.0f/w;
+	matrix[1][1] = 2.0f/h;
+	matrix[2][2] = 1.0f/(z_near - z_far);
+	matrix[3][2] =  z_near/(z_near - z_far);
+
+	return matrix;
+}
+
+Matrix4x4 GutMatrixPerspectiveRH_OpenGL(float fovy, float aspect, float z_near, float z_far)
+{
+	Matrix4x4 matrix;
+	matrix.Identity();
+
+	float fovy_radian = FastMath::DegreeToRadian(fovy);
+	float yscale = FastMath::Cot(fovy_radian/2.0f);
+	float xscale = yscale * aspect;
+
+	matrix[0][0] = xscale;
+	matrix[1][1] = yscale;
+	matrix[2][2] = z_far/(z_near - z_far);
+	matrix[2][3] = -1.0f;
+	matrix[3][2] =  (z_near * z_far)/(z_near - z_far);
+	matrix[3][3] = 0.0f;
+
+	return matrix;
+}
+
+Matrix4x4 GutMatrixPerspectiveRH_DirectX(float fovy, float aspect, float z_near, float z_far)
+{
+	Matrix4x4 matrix;
+	matrix.Identity();
+
+	float fovy_radian = FastMath::DegreeToRadian(fovy);
+	float yscale = FastMath::Cot(fovy_radian/2.0f);
+	float xscale = yscale * aspect;
+
+	matrix[0][0] = xscale;
+	matrix[1][1] = yscale;
+	matrix[2][2] = (z_far + z_near)/(z_near - z_far);
+	matrix[2][3] = -1.0f;
+	matrix[3][2] =  2.0f  * z_near * z_far/(z_near - z_far);
+	matrix[3][3] = 0.0f;
+
+	return matrix;
+}
+
 
 //#############################################################
 //######################message proc#############################

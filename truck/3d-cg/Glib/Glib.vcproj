@@ -153,6 +153,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\GutDX9.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\GutOpenGL.cpp"
 				>
 			</File>
@@ -171,7 +175,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\GutDef.h"
+				RelativePath=".\GutDefs.h"
+				>
+			</File>
+			<File
+				RelativePath=".\GutDX9.h"
 				>
 			</File>
 			<File

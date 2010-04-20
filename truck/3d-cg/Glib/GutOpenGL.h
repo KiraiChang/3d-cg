@@ -1,15 +1,10 @@
 #ifndef _GUTOPENGL_H_
 #define _GUTOPENGL_H_
 
-#include "GutDef.h"
+#include "GutDefs.h"
 
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
-
-//--------------global object--------------------------------
-
-static HDC g_hDC = NULL;
-static HGLRC g_hGLRC = NULL;
 
 //--------------device init--------------------------------
 

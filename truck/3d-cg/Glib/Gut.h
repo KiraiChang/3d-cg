@@ -5,8 +5,9 @@
 #include <GL/gl.h>
 #include <d3d9.h>
 
-#include "GutDef.h"
+#include "GutDefs.h"
 #include "GutOpenGL.h"
+#include "GutDX9.h"
 #include ".\math\Vector4.h"
 #include ".\math\Matrix4x4.h"
 
@@ -21,6 +22,12 @@ GutEnum GutGetGraphicsDeviceType(const char *device = NULL);
 Matrix4x4 GutMatrixLookAtRH(Vector4 &eye, Vector4 &lookat, Vector4 &up);
 
 Matrix4x4 GutMatrixOrthoRH_OpenGL(float w, float h, float z_near, float z_far);
+Matrix4x4 GutMatrixOrthoRH_DirectX(float w, float h, float z_near, float z_far);
+
+Matrix4x4 GutMatrixPerspectiveRH_OpenGL(float fovy, float aspect, float z_near, float z_far);
+Matrix4x4 GutMatrixPerspectiveRH_DirectX(float fovy, float aspect, float z_near, float z_far);
+
+
 
 //------------message proc-------------------------------
 extern GutCallBack g_GutCallBack;
