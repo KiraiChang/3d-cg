@@ -1,5 +1,5 @@
 #include "Gut.h"
-#include "GutWin32.h"
+#include "..\Win32\GutWin32.h"
 
 #include <memory.h>
 
@@ -24,9 +24,9 @@ bool GutInitGraphicsDevice(const char *device)
 	case GUT_DX9:
 		return GutInitGraphicsDeviceDX9();
 		break;
-	//case GUT_DX10:
-	//	return GutInitGraphicsDeviceDX10();
-	//	break;
+	case GUT_DX10:
+		return GutInitGraphicsDeviceDX10();
+		break;
 	}
 
 	g_eDeviceType = GUT_UNKNOWN;
@@ -151,6 +151,22 @@ Matrix4x4 GutMatrixPerspectiveRH_DirectX(float fovy, float aspect, float z_near,
 	matrix[3][3] = 0.0f;
 
 	return matrix;
+}
+
+//#############################################################
+//######################shader tool###############################
+//#############################################################
+
+static char g_szShaderPath[128] = "";
+
+void GutSetShaderPath(const char *path)
+{
+	strcpy_s(g_szShaderPath, path);
+}
+
+const char *GutGetShaderPath(void)
+{
+	return g_szShaderPath;
 }
 
 

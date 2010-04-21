@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="Glib"
+	Name="glib"
 	ProjectGUID="{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}"
 	RootNamespace="Glib"
 	Keyword="Win32Proj"
@@ -41,7 +41,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft DirectX SDK (August 2009)\Include&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;_CONSOLE;GLEW_STATIC;_ENABLE_DX10_;_CRT_SECURE_NO_WARNINGS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -148,48 +149,12 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-			<File
-				RelativePath=".\Gut.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\GutDX9.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\GutOpenGL.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\GutWin32.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="¼ÐÀYÀÉ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\Gut.h"
-				>
-			</File>
-			<File
-				RelativePath=".\GutDefs.h"
-				>
-			</File>
-			<File
-				RelativePath=".\GutDX9.h"
-				>
-			</File>
-			<File
-				RelativePath=".\GutOpenGL.h"
-				>
-			</File>
-			<File
-				RelativePath=".\GutWin32.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="¸ê·½ÀÉ"
@@ -198,7 +163,7 @@
 			>
 		</Filter>
 		<Filter
-			Name="math"
+			Name="Math"
 			>
 			<File
 				RelativePath=".\math\FastMath.h"
@@ -242,6 +207,94 @@
 			</File>
 			<File
 				RelativePath=".\math\Vector4_SSE.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Utility"
+			>
+			<File
+				RelativePath=".\Utility\Gut.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Utility\Gut.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Utility\GutDefs.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Utility\GutFileUtility.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Utility\GutFileUtility.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="OpenGL"
+			>
+			<File
+				RelativePath=".\OpenGL\glew.c"
+				>
+			</File>
+			<File
+				RelativePath=".\OpenGL\glew.h"
+				>
+			</File>
+			<File
+				RelativePath=".\OpenGL\glxew.h"
+				>
+			</File>
+			<File
+				RelativePath=".\OpenGL\GutOpenGL.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\OpenGL\GutOpenGL.h"
+				>
+			</File>
+			<File
+				RelativePath=".\OpenGL\wglew.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="DX9"
+			>
+			<File
+				RelativePath=".\DX9\GutDX9.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DX9\GutDX9.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="DX10"
+			>
+			<File
+				RelativePath=".\DX10\GutDX10.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DX10\GutDX10.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Win32"
+			>
+			<File
+				RelativePath=".\Win32\GutWin32.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Win32\GutWin32.h"
 				>
 			</File>
 		</Filter>

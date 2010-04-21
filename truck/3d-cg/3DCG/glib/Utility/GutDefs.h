@@ -5,7 +5,7 @@
 #define RELEASE_ARRAY(x) if ( x ) { delete [] x; x=NULL; }
 
 #include <stdio.h>
-#include ".\math\Vector4.h"
+#include "..\Math\Vector4.h"
 
 //--------------device init struct----------------
 

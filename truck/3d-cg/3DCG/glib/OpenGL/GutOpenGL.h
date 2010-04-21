@@ -1,10 +1,18 @@
 #ifndef _GUTOPENGL_H_
 #define _GUTOPENGL_H_
 
-#include "GutDefs.h"
+#include "..\Utility\GutDefs.h"
 
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
+
+//---------------shader tool----------------------------
+
+GLuint GutLoadVertexProgramOpenGL_ASM(const char *filename);
+GLuint GutLoadFragmentProgramOpenGL_ASM(const char *filename);
+
+void GutReleaseVertexProgramOpenGL(GLuint shader_id);
+void GutReleaseFragmentProgramOpenGL(GLuint shader_id);
 
 //--------------device init--------------------------------
 
