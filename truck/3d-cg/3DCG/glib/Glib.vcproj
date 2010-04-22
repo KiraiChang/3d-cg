@@ -18,8 +18,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\Debug\bin\"
-			IntermediateDirectory="..\Debug\obj\"
+			OutputDirectory="..\$(ConfigurationName)\$(ProjectName)\bin"
+			IntermediateDirectory="..\$(ConfigurationName)\$(ProjectName)\obj"
 			ConfigurationType="4"
 			CharacterSet="0"
 			>
@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft DirectX SDK (August 2009)\Include&quot;"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;_CONSOLE;GLEW_STATIC;_ENABLE_DX10_;_CRT_SECURE_NO_WARNINGS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"

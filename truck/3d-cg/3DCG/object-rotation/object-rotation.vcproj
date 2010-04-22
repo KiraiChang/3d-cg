@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="Pyramid"
-	ProjectGUID="{1220DE68-A037-4B42-BD5C-3DAA9C20C007}"
-	RootNamespace="main"
+	Name="object-rotation"
+	ProjectGUID="{C081CB75-7D9F-41B6-96AB-E67968B6820D}"
+	RootNamespace="objectrotation"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -21,7 +21,7 @@
 			OutputDirectory="..\$(ConfigurationName)\$(ProjectName)\bin"
 			IntermediateDirectory="..\$(ConfigurationName)\$(ProjectName)\obj"
 			ConfigurationType="1"
-			CharacterSet="0"
+			CharacterSet="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -41,8 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;_ENABLE_DX10_"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -62,7 +61,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -173,23 +171,15 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\dx10app.cpp"
+				RelativePath=".\object-rotation.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\dx9_shader.cpp"
+				RelativePath=".\render_data.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\main.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\opengl_shader.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\render_data.h"
+				RelativePath=".\render_opengl.cpp"
 				>
 			</File>
 			<File
@@ -219,15 +209,11 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\dx10app.h"
+				RelativePath=".\render_data.h"
 				>
 			</File>
 			<File
-				RelativePath=".\dx9_shader.h"
-				>
-			</File>
-			<File
-				RelativePath=".\opengl_shader.h"
+				RelativePath=".\render_opengl.h"
 				>
 			</File>
 			<File
@@ -247,22 +233,6 @@
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"
-			>
-		</File>
-		<File
-			RelativePath=".\vertex_transform.glpp"
-			>
-		</File>
-		<File
-			RelativePath=".\vertex_transform.glvp"
-			>
-		</File>
-		<File
-			RelativePath=".\vertex_transform_dx10.shader"
-			>
-		</File>
-		<File
-			RelativePath=".\vertex_transform_dx9.shader"
 			>
 		</File>
 	</Files>

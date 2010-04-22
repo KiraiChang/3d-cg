@@ -8,6 +8,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pyramid", "Pyramid\main.vcp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glib", "glib\Glib.vcproj", "{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "object-rotation", "object-rotation\object-rotation.vcproj", "{C081CB75-7D9F-41B6-96AB-E67968B6820D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C} = {64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_DX10|Win32 = Debug_DX10|Win32
@@ -32,6 +37,14 @@ Global
 		{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}.Release_DX10|Win32.Build.0 = Release|Win32
 		{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}.Release|Win32.ActiveCfg = Release|Win32
 		{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}.Release|Win32.Build.0 = Release|Win32
+		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Debug_DX10|Win32.ActiveCfg = Debug|Win32
+		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Debug_DX10|Win32.Build.0 = Debug|Win32
+		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Debug|Win32.Build.0 = Debug|Win32
+		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Release_DX10|Win32.ActiveCfg = Release|Win32
+		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Release_DX10|Win32.Build.0 = Release|Win32
+		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Release|Win32.ActiveCfg = Release|Win32
+		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
