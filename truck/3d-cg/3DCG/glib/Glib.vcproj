@@ -290,11 +290,31 @@
 			Name="Win32"
 			>
 			<File
+				RelativePath=".\Win32\GutTimer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Win32\GutTimer.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Win32\GutWin32.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\Win32\GutWin32.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Input"
+			>
+			<File
+				RelativePath=".\Input\GutInput.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Input\GutInput.h"
 				>
 			</File>
 		</Filter>

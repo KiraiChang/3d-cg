@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pyramid", "Pyramid\main.vcproj", "{1220DE68-A037-4B42-BD5C-3DAA9C20C007}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pyramid", "pyramid\main.vcproj", "{1220DE68-A037-4B42-BD5C-3DAA9C20C007}"
 	ProjectSection(ProjectDependencies) = postProject
 		{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C} = {64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}
 	EndProjectSection
@@ -9,6 +9,11 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glib", "glib\Glib.vcproj", "{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "object-rotation", "object-rotation\object-rotation.vcproj", "{C081CB75-7D9F-41B6-96AB-E67968B6820D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C} = {64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "camera-rotation", "camera-rotation\camera-rotation.vcproj", "{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}"
 	ProjectSection(ProjectDependencies) = postProject
 		{64DBA5F2-48F8-4513-B72C-CC7C156F7D2C} = {64DBA5F2-48F8-4513-B72C-CC7C156F7D2C}
 	EndProjectSection
@@ -45,6 +50,14 @@ Global
 		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Release_DX10|Win32.Build.0 = Release|Win32
 		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Release|Win32.ActiveCfg = Release|Win32
 		{C081CB75-7D9F-41B6-96AB-E67968B6820D}.Release|Win32.Build.0 = Release|Win32
+		{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}.Debug_DX10|Win32.ActiveCfg = Debug|Win32
+		{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}.Debug_DX10|Win32.Build.0 = Debug|Win32
+		{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}.Debug|Win32.ActiveCfg = Debug|Win32
+		{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}.Debug|Win32.Build.0 = Debug|Win32
+		{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}.Release_DX10|Win32.ActiveCfg = Release|Win32
+		{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}.Release_DX10|Win32.Build.0 = Release|Win32
+		{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}.Release|Win32.ActiveCfg = Release|Win32
+		{75FCCA4D-D862-4712-BC8E-FCA55CE62D11}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
