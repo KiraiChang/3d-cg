@@ -5,14 +5,24 @@
 // Standard OpenGL header
 #include <GL/gl.h>
 
-#include "..\glib\utility\Gut.h"
+#include "..\glib\utility\gut.h"
 #include "render_data.h"
 
 static Matrix4x4 g_view_matrix;
 
+GutCamera g_camera;
+
 bool InitResourceOpenGL(void)
 {
-	g_view_matrix = GutMatrixLookAtRH(g_eye, g_lookat, g_up);
+	// 鏡頭位置
+	Vector4 eye = Vector4(0.0f, 0.5f, 10.0f); 
+	// 鏡頭對準的點
+	Vector4 lookat = Vector4(0.0f, 0.5f, 0.0f); 
+	// 鏡頭正上方的方向
+	Vector4 up = Vector4(0.0f, 1.0f, 0.0f);
+	g_camera.SetCamera(eye, lookat, up);
+
+	g_view_matrix = g_camera.GetViewMatrix();//GutMatrixLookAtRH(g_eye, g_lookat, g_up);
 	Matrix4x4 projection_matrix = GutMatrixPerspectiveRH_OpenGL(90.0f, 1.0f, 1.0f, 100.0f);
 	glMatrixMode(GL_PROJECTION);
 	glLoadMatrixf((float *)&projection_matrix);
@@ -31,7 +41,7 @@ void RenderFrameOpenGL(void)
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
 	
-	Matrix4x4 view_matrix = GutMatrixLookAtRH(g_eye, g_lookat, g_up);
+	Matrix4x4 view_matrix = g_camera.GetViewMatrix();//GutMatrixLookAtRH(g_eye, g_lookat, g_up);
 
 	Vector4 border(-15.0f, 0.0f, -15.0f);
 	Vector4 grid_position = border;

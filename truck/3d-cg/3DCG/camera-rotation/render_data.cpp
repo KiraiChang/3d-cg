@@ -72,14 +72,6 @@ unsigned short g_road_trianglestrip_indices[4] =
 	0, 1, 3, 2
 };
 
-
-// 鏡頭位置
-Vector4 g_eye(0.0f, 0.5f, 10.0f); 
-// 鏡頭對準的點
-Vector4 g_lookat(0.0f, 0.5f, 0.0f); 
-// 鏡頭正上方的方向
-Vector4 g_up(0.0f, 1.0f, 0.0f); 
-
 Matrix4x4 g_object_matrix;
 
 char g_map[8][8] = 
@@ -93,3 +85,11 @@ char g_map[8][8] =
 	{2, 0, 3, 0, 5, 0, 5, 0},
 	{0, 0, 0, 0, 0, 0, 0, 0}
 };
+
+
+//// 鏡頭位置
+//Vector4 g_eye(0.0f, 0.5f, 10.0f); 
+//// 鏡頭對準的點
+//Vector4 g_lookat(0.0f, 0.5f, 0.0f); 
+//// 鏡頭正上方的方向
+//Vector4 g_up(0.0f, 1.0f, 0.0f);

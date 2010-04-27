@@ -318,6 +318,18 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="Camera"
+			>
+			<File
+				RelativePath=".\Camera\GutCamera.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Camera\GutCamera.h"
+				>
+			</File>
+		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"
 			>

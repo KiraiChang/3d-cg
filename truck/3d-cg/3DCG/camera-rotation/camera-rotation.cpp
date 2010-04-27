@@ -11,6 +11,7 @@
 //#include "render_dx10.h"
 #include "render_opengl.h"
 #include "render_data.h"
+#include "..\glib\camera\gutcamera.h"
 #include "..\glib\win32\GutTimer.h"
 
 GutTimer g_Timer;
@@ -23,16 +24,61 @@ void GetUserInput(void)
 	// `讀取鍵盤`
 	char keyboard_state[256];
 	GutReadKeyboard(keyboard_state);
-	// `計算目前鏡頭面向`
-	Vector4 facing = g_lookat - g_eye;
-	// `確保它是個單位向量`
-	facing.Normalize(); 
+
 	// `取得畫完前一個畫面到現在所經歷的時間`
 	float time_diff = g_Timer.Stop();
 	g_Timer.Restart();
 
 	float moving_speed = 2.0f * time_diff;
 	float rotation_speed = 1.0f * time_diff;
+
+	//極座標系統
+	static float theta = -MATH_PI * 0.5f;
+	static float phi = 0.0f;
+
+	//如果按下滑鼠左鍵, 就旋轉鏡頭.
+	if ( mouse.button[0] ) 
+	{
+		theta += mouse.x * rotation_speed;
+		phi -= mouse.y * rotation_speed;
+	}
+
+	//設定面向
+	g_camera.SetFacing(phi, theta);
+
+	//按下W或方向鍵向上
+	if ( keyboard_state[GUTKEY_W] || keyboard_state[GUTKEY_UP] )
+	{
+		g_camera.Move(moving_speed);
+	}
+	//按下S或方向鍵向下
+	if ( keyboard_state[GUTKEY_S] || keyboard_state[GUTKEY_DOWN] )
+	{
+		g_camera.Move(-moving_speed);
+	}
+	//按下W或方向鍵向上
+	if ( keyboard_state[GUTKEY_Q] || keyboard_state[GUTKEY_UP] )
+	{
+		g_camera.Pitch(moving_speed);
+	}
+	//按下S或方向鍵向下
+	if ( keyboard_state[GUTKEY_Z] || keyboard_state[GUTKEY_DOWN] )
+	{
+		g_camera.Pitch(-moving_speed);
+	}
+
+	//按下A或方向鍵向左
+	if ( keyboard_state[GUTKEY_A] || keyboard_state[GUTKEY_LEFT] )
+	{
+		g_camera.Yaw(-moving_speed);
+	}
+	//按下D或方向鍵向右
+	if ( keyboard_state[GUTKEY_D] || keyboard_state[GUTKEY_RIGHT] )
+	{
+		g_camera.Yaw(moving_speed);
+	}
+
+	/*
 	float ry = 0.0f;
 
 	// `如果按下滑鼠左鍵, 就旋轉鏡頭.`
@@ -44,32 +90,27 @@ void GetUserInput(void)
 	// `按下D或是方向鍵->, 就右旋.`
 	if ( keyboard_state[GUTKEY_D] || keyboard_state[GUTKEY_RIGHT] )
 		ry = rotation_speed;
-	
-	if ( ry )
-	{
-		// `先取得一個旋轉矩陣`
-		Matrix4x4 rotate_matrix;
-		rotate_matrix.RotateY_Replace(-ry);
-		// `把原本的面向沿Y軸旋轉ry度, 取得新的面向.`
-		facing = facing * rotate_matrix;
-	}
+
+	//鏡頭左右旋轉
+	g_camera.Rotation(ry);
 
 	// `按下W或方向鍵向上`
 	if ( keyboard_state[GUTKEY_W] || keyboard_state[GUTKEY_UP] )
 	{
-		// `鏡頭向前移動`
-		g_eye += facing * moving_speed; 
+		//鏡頭向前移動
+		//g_camera.Move(moving_speed);
 	}
 
 	// `按下S或方向鍵向下`
 	if ( keyboard_state[GUTKEY_S] || keyboard_state[GUTKEY_DOWN] )
 	{
-		// `鏡頭向後移動`
-		g_eye -= facing * moving_speed; 
+		//鏡頭向後移動
+		//g_camera.Move(-moving_speed);
 	}
+	*/
 
-	// `計算出鏡頭對準的點, 產生鏡頭轉換矩陣時會用到.`
-	g_lookat = g_eye + facing; 
+	// 計算出鏡頭對準的點, 產生鏡頭轉換矩陣時會用到.
+	g_camera.SetLookUp();
 }
 
 int _tmain(int argc, _TCHAR* argv[])
